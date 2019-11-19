@@ -2,6 +2,7 @@ package com.mcnz.restful.java.example;
 
 import javax.ws.rs.*;
 
+@Path("/")
 public class ScoreService {
 	private static int wins, losses, ties;
 	
@@ -23,17 +24,17 @@ public class ScoreService {
 		return String.format(pattern, wins, losses, ties);
 	}
 	
-	@POST @Path("/score/wins")@Produces("text/plain")
+	@GET @Path("/score/wins")@Produces("text/plain")
 	public static int getWins() {
 		return wins;
 	}
 	
-	@POST @Path("/score/losses")@Produces("text/plain")
+	@GET @Path("/score/losses")@Produces("text/plain")
 	public static int getLosses() {
 		return losses;
 	}
 
-	@POST @Path("/score/ties")@Produces("text/plain")
+	@GET @Path("/score/ties")@Produces("text/plain")
 	public static int getTies() {
 		return ties;
 	}
